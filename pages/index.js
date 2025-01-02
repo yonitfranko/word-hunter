@@ -18,35 +18,36 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="max-w-md mx-auto">
-        {/* לוגו בית הספר */}
-        <div className="flex justify-center mb-8">
-         <div className="relative w-20 h-20">  {/* הקטנו מ-32 ל-20 */}
-  <Image
-    src="/לוגו דרכא.PNG"
-    alt="לוגו בית ספר"
-    width={80}         {/* הגדרה מפורשת של רוחב */}
-    height={80}        {/* הגדרה מפורשת של גובה */}
-    style={{          
-      objectFit: 'contain',
-      quality: 100    /* איכות תמונה גבוהה */
-    }}
-    priority
-  />
-</div>
-        
-        {/* כותרת */}
-        <div className="text-center mb-8">
-          <div className="flex justify-center mb-4">
-            <div className="bg-blue-100 p-3 rounded-full">
-              <BookOpen className="w-8 h-8 text-blue-600" />
-            </div>
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">צייד המילים</h1>
-          <p className="text-gray-600">ברוכים הבאים למשחק אוצר המילים</p>
+   <main className="min-h-screen bg-gray-50 py-12 px-4">
+  <div className="max-w-md mx-auto">
+    {/* לוגו בית הספר */}
+    <div className="flex justify-center mb-8">
+      <div className="relative w-20 h-20">
+        <Image
+          src="/לוגו דרכא.PNG"
+          alt="לוגו בית ספר"
+          width={80}
+          height={80}
+          style={{
+            objectFit: 'contain',
+            quality: 100
+          }}
+          priority
+        />
+      </div>
+    </div>
+    
+    {/* כותרת */}
+    <div className="text-center mb-8">
+      <div className="flex justify-center mb-4">
+        <div className="bg-blue-100 p-3 rounded-full">
+          <BookOpen className="w-8 h-8 text-blue-600" />
         </div>
-
+      </div>
+      <h1 className="text-2xl font-bold text-gray-900 mb-2">צייד המילים</h1>
+      <p className="text-gray-600">ברוכים הבאים למשחק אוצר המילים</p>
+    </div>
+     
         {/* טופס כניסה */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
