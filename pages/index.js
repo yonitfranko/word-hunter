@@ -35,8 +35,7 @@ export default function Home() {
     priority
   />
 </div>
-        </div>
-
+        
         {/* כותרת */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
