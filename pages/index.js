@@ -23,13 +23,13 @@ export default function Home() {
         {/* לוגו בית הספר */}
         <div className="flex justify-center mb-8">
           <div className="relative w-32 h-32">
-            <Image
-              src="/logo.png"
-              alt="לוגו בית ספר"
-              layout="fill"
-              objectFit="contain"
-              priority
-            />
+           <Image
+  src="/לוגו דרכא.PNG"  // שם הקובץ המדויק עם אותיות גדולות
+  alt="לוגו בית ספר"
+  layout="fill"
+  objectFit="contain"
+  priority
+/>
           </div>
         </div>
 
