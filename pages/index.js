@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import { BookOpen, User, Users } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
-  const router = useRouter();
   const [role, setRole] = useState('');
   const [formData, setFormData] = useState({
     name: '',
@@ -14,17 +13,26 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (role === 'teacher') {
-      router.push('/teacher');
-    } else {
-      router.push('/student');
-    }
+    // TODO: התחברות והפניה לדף המתאים
+    console.log('Form submitted:', { role, ...formData });
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="max-w-md w-full">
+    <main className="min-h-screen bg-gray-50 py-12 px-4">
+      <div className="max-w-md mx-auto">
+        {/* לוגו בית הספר */}
+        <div className="flex justify-center mb-8">
+          <div className="relative w-32 h-32">
+            <Image
+              src="/logo.png"
+              alt="לוגו בית ספר"
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
+          </div>
+        </div>
+
         {/* כותרת */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
@@ -37,14 +45,14 @@ export default function Home() {
         </div>
 
         {/* טופס כניסה */}
-        <div className="bg-white rounded-lg shadow p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* בחירת תפקיד */}
             <div className="grid grid-cols-2 gap-4">
               <button
                 type="button"
                 onClick={() => setRole('student')}
-                className={`p-4 rounded-lg border-2 transition-colors ${
+                className={`p-4 rounded-lg border-2 transition-all ${
                   role === 'student'
                     ? 'border-blue-500 bg-blue-50'
                     : 'border-gray-200 hover:border-blue-200'
@@ -57,7 +65,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setRole('teacher')}
-                className={`p-4 rounded-lg border-2 transition-colors ${
+                className={`p-4 rounded-lg border-2 transition-all ${
                   role === 'teacher'
                     ? 'border-blue-500 bg-blue-50'
                     : 'border-gray-200 hover:border-blue-200'
@@ -70,11 +78,10 @@ export default function Home() {
 
             {/* שם */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="name">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 שם מלא
               </label>
               <input
-                id="name"
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -86,11 +93,10 @@ export default function Home() {
             {/* בחירת כיתה (רק לתלמידים) */}
             {role === 'student' && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="class">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                   כיתה
                 </label>
                 <select
-                  id="class"
                   value={formData.class}
                   onChange={(e) => setFormData({ ...formData, class: e.target.value })}
                   className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -118,6 +124,6 @@ export default function Home() {
           </form>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
